@@ -19,9 +19,10 @@ public class Test {
         //withdrawing 2419
         System.out.println("\n"+dictionary.get(0).getCus_name() + " -> Withdrawing 2419$  "  +
                 dictionary.get(0).withDraw(2419) + " -> balance "+ + dictionary.get(0).getBalance());
-        //this will throw IllegalWithDrawException() because the balance reach below 100
+        //withdrawing 7
         System.out.println("\n"+dictionary.get(0).getCus_name() + " -> Withdrawing 7$  "   +
                 dictionary.get(0).withDraw(7) + " -> balance "+ + dictionary.get(0).getBalance());
+        //trying to withdraw 1$, but it throws exception because it reaches the minimum balance
         System.out.println("\n"+dictionary.get(0).getCus_name() + " -> Withdrawing 1$  "   +
                 dictionary.get(0).withDraw(1) + " -> balance "+ + dictionary.get(0).getBalance());
 
