@@ -15,7 +15,7 @@ public class Test {
         ));
         System.out.println("Printing before any withdraw or deposit");
         System.out.print(dictionary);
-        System.out.println("\nOriginal Balance -> " + dictionary.get(0).getBalance());
+        System.out.println("\n"+dictionary.get(0).getCus_name() +"'s Original Balance -> " + dictionary.get(0).getBalance());
         //withdrawing 2419
         System.out.println("\n"+dictionary.get(0).getCus_name() + " -> Withdrawing 2419$  "  +
                 dictionary.get(0).withDraw(2419) + " -> balance "+ + dictionary.get(0).getBalance());
@@ -30,5 +30,6 @@ public class Test {
                 dictionary.get(0).deposit(1000) + " -> balance "+ + dictionary.get(0).getBalance());
 
         System.out.println("\nPrinting after deposit or withdraw");
+        System.out.print(dictionary);
     }
 }
