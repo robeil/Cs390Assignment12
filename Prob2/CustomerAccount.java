@@ -26,17 +26,16 @@ public class CustomerAccount {
     //deposit method
     public boolean deposit(double amount) throws IllegalWithDrawException {
 
-            if (amount < 0) {
+            if (amount <= 0) {
                 throw new IllegalWithDrawException("You can not deposit negative amount");
             }
             balance += amount;
-
         return true;
     }
         //withdraw method
     public boolean withDraw(double amount) throws IllegalWithDrawException {
 
-            if (balance < 100 || amount + 100 > balance) {
+            if (balance < 100 || amount + 100 > balance || amount <= 0) {
                 throw new IllegalWithDrawException("Your balance reach below 100$");
             } else {
                 balance -= amount;
