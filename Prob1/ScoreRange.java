@@ -12,12 +12,16 @@ public class ScoreRange {
         try {
             userGiven = input.nextInt();
             if(userGiven < 0 || userGiven > 100){
-                throw new UnsupportedOperationException();
+                throw new UnsupportedOperationException("Input is out of range");
             }
         } catch (InputMismatchException e1) {
-            e1.printStackTrace();
+            System.out.println(e1.getMessage());
+        } catch (UnsupportedOperationException e2){
+            System.out.println(e2.getMessage());
+        }finally {
+            System.out.println("You entered: "+ userGiven);
         }
 
-        System.out.println("You entered: "+ userGiven);
+
     }
 }
