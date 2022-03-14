@@ -13,24 +13,30 @@ public class Test {
                 new CustomerAccount("Haben","695-586-4785",6958),
                 new CustomerAccount("Hannah","695-987-5896",9856)
         ));
-        System.out.println("Printing before any withdraw or deposit");
-        System.out.print(dictionary);
-        System.out.println("\n"+dictionary.get(0).getCus_name() +"'s Original Balance -> " + dictionary.get(0).getBalance());
-        //withdrawing 2419
-        System.out.println("\n"+dictionary.get(0).getCus_name() + " -> Withdrawing 2419$  "  +
-                dictionary.get(0).withDraw(2419) + " -> balance "+ + dictionary.get(0).getBalance());
-        //withdrawing 7
-        System.out.println("\n"+dictionary.get(0).getCus_name() + " -> Withdrawing 7$  "   +
-                dictionary.get(0).withDraw(7) + " -> balance "+ + dictionary.get(0).getBalance());
-        //trying to withdraw 1$, but it throws exception because it reaches the minimum balance
-        System.out.println("\n"+dictionary.get(0).getCus_name() + " -> Withdrawing 1$  "   +
-                dictionary.get(0).withDraw(1) + " -> balance "+ + dictionary.get(0).getBalance());
+        try {
+            //this will throw error
+           // dictionary.get(0).deposit(-1);
+            System.out.println("Printing before any withdraw or deposit");
+            System.out.print(dictionary);
+            System.out.println("\n" + dictionary.get(0).getCus_name() + "'s Original Balance -> " + dictionary.get(0).getBalance());
+            //withdrawing 2419
+            System.out.println("\n" + dictionary.get(0).getCus_name() + " -> Withdrawing 2419$  " +
+                    dictionary.get(0).withDraw(2419) + " -> balance " + +dictionary.get(0).getBalance());
+            //withdrawing 7
+            System.out.println("\n" + dictionary.get(0).getCus_name() + " -> Withdrawing 7$  " +
+                    dictionary.get(0).withDraw(7) + " -> balance " + +dictionary.get(0).getBalance());
+            //trying to withdraw 1$, but it throws exception because it reaches the minimum balance
+            System.out.println("\n" + dictionary.get(0).getCus_name() + " -> Withdrawing 1$  " +
+                    dictionary.get(0).withDraw(1) + " -> balance " + +dictionary.get(0).getBalance());
 
-        //depositing 1000
-        System.out.println("\n"+dictionary.get(0).getCus_name() + " -> Depositing 1000$ " +
-                dictionary.get(0).deposit(1000) + " -> balance "+ + dictionary.get(0).getBalance());
+            //depositing 1000
+            System.out.println("\n" + dictionary.get(0).getCus_name() + " -> Depositing 1000$ " +
+                    dictionary.get(0).deposit(1000) + " -> balance " + +dictionary.get(0).getBalance());
 
-        System.out.println("\nPrinting after deposit or withdraw");
-        System.out.print(dictionary);
+            System.out.println("\nPrinting after deposit or withdraw");
+            System.out.print(dictionary);
+        } catch (IllegalWithDrawException e){
+            System.out.println(e.getMessage());
+        }
     }
 }

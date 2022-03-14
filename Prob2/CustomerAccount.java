@@ -24,40 +24,24 @@ public class CustomerAccount {
     }
 
     //deposit method
-    public boolean deposit(double amount) {
-        boolean does_Deposite = false;
+    public boolean deposit(double amount) throws IllegalWithDrawException {
 
             if (amount < 0) {
-                return false;
+                throw new IllegalWithDrawException("You can not deposit negative amount");
             }
             balance += amount;
-            does_Deposite = true;
 
-        return does_Deposite;
+        return true;
     }
         //withdraw method
-    public boolean withDraw(double amount) {
-        boolean hasBalance = false;
-        try {
-            if (balance < 100) {
-                throw new BalanceReachLowException("Your balance reach below 100$");
-            }
-            try {
-                if (amount > balance - 99) {
-                    hasBalance = false;
-                    throw new IllegalWithDrawException("Withdraw amount exceed the balance");
-                } else {
-                    balance = balance - amount;
-                    hasBalance = true;
-                }
-            } catch (IllegalWithDrawException e) {
-                e.printStackTrace();
-            }
+    public boolean withDraw(double amount) throws IllegalWithDrawException {
 
-        } catch (BalanceReachLowException e) {
-            e.printStackTrace();
-        }
-        return hasBalance;
+            if (balance < 100 || amount + 100 > balance) {
+                throw new IllegalWithDrawException("Your balance reach below 100$");
+            } else {
+                balance -= amount;
+                return true;
+            }
     }
     //getBalance
     public double getBalance(){
